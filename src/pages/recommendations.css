@@ -1,0 +1,702 @@
+/* ============================================================
+   RECOMMENDATIONS PAGE
+   Warehouse Space Optimization
+   Analytics-matched glass UI
+   ============================================================ */
+
+.recommendations-page {
+  width: 100%;
+  min-height: 100%;
+
+  padding: 22px 28px 35px;
+
+  box-sizing: border-box;
+
+  color: var(--text-main);
+}
+
+/* ============================================================
+   PAGE HEADER
+   ============================================================ */
+
+.recommendations-header {
+  margin-bottom: 24px;
+}
+
+.recommendations-header h1 {
+  margin: 0;
+
+  color: var(--text-main);
+
+  font-size: 29px;
+  line-height: 1.15;
+
+  font-weight: 700;
+
+  letter-spacing: -0.7px;
+}
+
+.recommendations-header p {
+  margin: 8px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+
+.recommendation-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 13px;
+
+  margin-bottom: 24px;
+}
+
+.recommendation-stat {
+  min-width: 0;
+
+  min-height: 92px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: 14px;
+
+  background: var(--glass-bg);
+
+  backdrop-filter:
+    blur(var(--glass-blur))
+    saturate(1.8);
+
+  -webkit-backdrop-filter:
+    blur(var(--glass-blur))
+    saturate(1.8);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.recommendation-stat:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(37, 99, 235, 0.18);
+
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.dark-mode .recommendation-stat:hover {
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.recommendation-stat h2 {
+  margin: 0 0 6px;
+
+  color: var(--text-main);
+
+  font-size: 23px;
+
+  line-height: 1;
+
+  font-weight: 700;
+}
+
+.recommendation-stat p {
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 9px;
+
+  line-height: 1.3;
+}
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+
+.recommendations-section h2,
+.recent-recommendations-section h2 {
+  margin: 0 0 15px;
+
+  color: var(--text-main);
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+/* ============================================================
+   ACTIVE RECOMMENDATION CARD
+   ============================================================ */
+
+.recommendation-card {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 17px 18px;
+
+  margin-bottom: 13px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: 16px;
+
+  background: var(--glass-bg);
+
+  backdrop-filter:
+    blur(var(--glass-blur))
+    saturate(1.8);
+
+  -webkit-backdrop-filter:
+    blur(var(--glass-blur))
+    saturate(1.8);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.recommendation-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(37, 99, 235, 0.18);
+
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.dark-mode .recommendation-card:hover {
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+/* ============================================================
+   RECOMMENDATION TITLE
+   ============================================================ */
+
+.recommendation-title {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+}
+
+.recommendation-title h3 {
+  margin: 0;
+
+  color: var(--text-main);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+/* ============================================================
+   TAGS
+   ============================================================ */
+
+.recommendation-tag {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 4px 7px;
+
+  border-radius: 5px;
+
+  font-size: 7px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+/* HIGH PRIORITY */
+
+.recommendation-tag.high {
+  background: rgba(239, 68, 68, 0.11);
+
+  border: 1px solid rgba(239, 68, 68, 0.12);
+
+  color: #dc2626;
+}
+
+.dark-mode .recommendation-tag.high {
+  background: rgba(239, 68, 68, 0.13);
+
+  color: #f87171;
+}
+
+/* MEDIUM PRIORITY */
+
+.recommendation-tag.medium {
+  background: rgba(234, 179, 8, 0.11);
+
+  border: 1px solid rgba(234, 179, 8, 0.12);
+
+  color: #a16207;
+}
+
+.dark-mode .recommendation-tag.medium {
+  background: rgba(234, 179, 8, 0.13);
+
+  color: #facc15;
+}
+
+/* PENDING */
+
+.recommendation-tag.pending {
+  background: rgba(100, 116, 139, 0.1);
+
+  border: 1px solid rgba(100, 116, 139, 0.1);
+
+  color: var(--text-muted);
+}
+
+/* IN PROGRESS */
+
+.recommendation-tag.in-progress {
+  background: rgba(37, 99, 235, 0.11);
+
+  border: 1px solid rgba(37, 99, 235, 0.13);
+
+  color: #2563eb;
+}
+
+.dark-mode .recommendation-tag.in-progress {
+  background: rgba(59, 130, 246, 0.14);
+
+  color: #60a5fa;
+}
+
+/* ============================================================
+   DESCRIPTION
+   ============================================================ */
+
+.recommendation-description {
+  margin: 8px 0 11px;
+
+  color: var(--text-muted);
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}
+
+/* ============================================================
+   METRICS
+   ============================================================ */
+
+.recommendation-metrics {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 20px;
+
+  margin: 0 0 12px;
+
+  padding: 0;
+
+  list-style: none;
+
+  color: var(--text-muted);
+
+  font-size: 9px;
+}
+
+.recommendation-metrics li {
+  position: relative;
+}
+
+.recommendation-metrics li:not(:last-child)::after {
+  content: "•";
+
+  position: absolute;
+
+  right: -13px;
+
+  color: rgba(100, 116, 139, 0.5);
+}
+
+/* ============================================================
+   PROGRESS BAR
+   ============================================================ */
+
+.recommendation-progress {
+  width: 100%;
+
+  height: 6px;
+
+  margin: 11px 0 13px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: rgba(100, 116, 139, 0.12);
+}
+
+.dark-mode .recommendation-progress {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.recommendation-progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #60a5fa
+    );
+
+  box-shadow:
+    0 0 9px rgba(59, 130, 246, 0.2);
+
+  transition: width 0.3s ease;
+}
+
+/* ============================================================
+   ACTION BUTTONS
+   ============================================================ */
+
+.recommendation-actions {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+}
+
+.recommendation-actions button {
+  height: 32px;
+
+  padding: 0 11px;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.recommendation-actions button:hover {
+  transform: translateY(-1px);
+}
+
+/* SECONDARY */
+
+.secondary-button {
+  border: 1px solid rgba(100, 116, 139, 0.16);
+
+  background: rgba(255, 255, 255, 0.25);
+
+  color: var(--text-muted);
+}
+
+.secondary-button:hover {
+  background: rgba(255, 255, 255, 0.45);
+
+  color: var(--text-main);
+}
+
+.dark-mode .secondary-button {
+  border-color: rgba(255, 255, 255, 0.09);
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.dark-mode .secondary-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+}
+
+/* PRIMARY */
+
+.primary-button {
+  border: 1px solid rgba(37, 99, 235, 0.2);
+
+  background: #2563eb;
+
+  color: #ffffff;
+}
+
+.primary-button:hover {
+  background: #1d4ed8;
+}
+
+/* ============================================================
+   RECENTLY IMPLEMENTED
+   ============================================================ */
+
+.recent-recommendations-section {
+  margin-top: 26px;
+}
+
+.recent-recommendation-card {
+  display: block;
+
+  padding: 15px 18px;
+
+  margin-bottom: 10px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: 14px;
+
+  background: var(--glass-bg);
+
+  backdrop-filter:
+    blur(var(--glass-blur))
+    saturate(1.8);
+
+  -webkit-backdrop-filter:
+    blur(var(--glass-blur))
+    saturate(1.8);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.recent-recommendation-card:hover {
+  transform: translateY(-1px);
+
+  border-color: rgba(37, 99, 235, 0.16);
+}
+
+.recent-recommendation-card strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--text-main);
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+.recent-recommendation-card p {
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 8px;
+
+  line-height: 1.5;
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+
+.dark-mode .recommendations-page {
+  color: #ffffff;
+}
+
+.dark-mode .recommendation-stat,
+.dark-mode .recommendation-card,
+.dark-mode .recent-recommendation-card {
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1100px) {
+  .recommendation-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .recommendations-page {
+    padding: 20px 18px 30px;
+  }
+
+  .recommendations-header h1 {
+    font-size: 26px;
+  }
+
+  .recommendations-header p {
+    font-size: 11px;
+  }
+
+  .recommendation-stats {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+  }
+
+  .recommendation-card {
+    padding: 16px;
+  }
+
+  .recommendation-title {
+    align-items: flex-start;
+  }
+
+  .recommendation-title h3 {
+    width: 100%;
+
+    margin-bottom: 1px;
+  }
+
+  .recommendation-metrics {
+    gap: 13px;
+  }
+
+  .recommendation-metrics li:not(:last-child)::after {
+    display: none;
+  }
+
+  .recommendation-actions {
+    justify-content: flex-start;
+
+    flex-wrap: wrap;
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 520px) {
+  .recommendations-page {
+    padding: 15px 12px 25px;
+  }
+
+  .recommendations-header {
+    margin-bottom: 20px;
+  }
+
+  .recommendations-header h1 {
+    font-size: 23px;
+  }
+
+  .recommendations-header p {
+    font-size: 10px;
+  }
+
+  .recommendation-stats {
+    grid-template-columns: 1fr;
+
+    gap: 9px;
+  }
+
+  .recommendation-stat {
+    min-height: 75px;
+
+    padding: 13px;
+  }
+
+  .recommendation-stat h2 {
+    font-size: 21px;
+  }
+
+  .recommendations-section h2,
+  .recent-recommendations-section h2 {
+    font-size: 16px;
+  }
+
+  .recommendation-card {
+    padding: 14px;
+  }
+
+  .recommendation-title h3 {
+    font-size: 12px;
+  }
+
+  .recommendation-description {
+    font-size: 9px;
+  }
+
+  .recommendation-actions {
+    width: 100%;
+  }
+
+  .recommendation-actions button {
+    flex: 1;
+  }
+
+  .recent-recommendation-card {
+    padding: 13px 14px;
+  }
+}

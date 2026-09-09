@@ -1,0 +1,554 @@
+/* ============================================================
+   CAMERA FEEDS
+   Warehouse Space Optimization
+   Analytics-matched glass UI
+   ============================================================ */
+
+.camera-feeds-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 22px 28px 35px;
+
+  box-sizing: border-box;
+
+  color: var(--text-main);
+}
+
+/* ============================================================
+   PAGE HEADER
+   ============================================================ */
+
+.camera-page-header {
+  margin-bottom: 24px;
+}
+
+.camera-page-header h1 {
+  margin: 0;
+
+  color: var(--text-main);
+
+  font-size: 29px;
+  line-height: 1.15;
+
+  font-weight: 700;
+  letter-spacing: -0.7px;
+}
+
+.camera-page-header p {
+  margin: 8px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+}
+
+/* ============================================================
+   CAMERA GRID
+   ============================================================ */
+
+.camera-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 15px;
+
+  width: 100%;
+}
+
+/* ============================================================
+   CAMERA CARD
+   ============================================================ */
+
+.camera-card {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 14px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--glass-border);
+  border-radius: 17px;
+
+  background: var(--glass-bg);
+
+  backdrop-filter:
+    blur(var(--glass-blur))
+    saturate(1.8);
+
+  -webkit-backdrop-filter:
+    blur(var(--glass-blur))
+    saturate(1.8);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.camera-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(37, 99, 235, 0.2);
+
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.dark-mode .camera-card:hover {
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+/* ============================================================
+   CAMERA CARD HEADER
+   ============================================================ */
+
+.camera-card-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 7px;
+}
+
+.camera-card-header h3 {
+  margin: 0;
+
+  min-width: 0;
+
+  color: var(--text-main);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+/* ============================================================
+   LIVE BADGE
+   ============================================================ */
+
+.camera-live-badge {
+  flex-shrink: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  height: 21px;
+
+  padding: 0 7px;
+
+  border: 1px solid rgba(16, 185, 129, 0.12);
+  border-radius: 6px;
+
+  background: rgba(16, 185, 129, 0.09);
+
+  color: #059669;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+.camera-live-badge::before {
+  content: "";
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #10b981;
+
+  box-shadow:
+    0 0 6px rgba(16, 185, 129, 0.6);
+}
+
+.dark-mode .camera-live-badge {
+  background: rgba(16, 185, 129, 0.11);
+
+  border-color: rgba(16, 185, 129, 0.16);
+
+  color: #34d399;
+}
+
+/* ============================================================
+   CAMERA ZONE
+   ============================================================ */
+
+.camera-zone {
+  margin: 0 0 10px;
+
+  color: var(--text-muted);
+
+  font-size: 9px;
+
+  line-height: 1.4;
+}
+
+/* ============================================================
+   VIDEO CONTAINER
+   ============================================================ */
+
+.camera-video-container {
+  position: relative;
+
+  width: 100%;
+
+  margin-top: 8px;
+
+  border-radius: 11px;
+
+  overflow: hidden;
+
+  background: #111827;
+
+  aspect-ratio: 16 / 9;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .camera-video-container {
+  border-color: rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ============================================================
+   VIDEO
+   ============================================================ */
+
+.camera-video-container video {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+
+  background: #111827;
+}
+
+/* ============================================================
+   REC BADGE
+   ============================================================ */
+
+.camera-rec-badge {
+  position: absolute;
+
+  top: 9px;
+  right: 9px;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  height: 21px;
+
+  padding: 0 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 6px;
+
+  background: rgba(15, 23, 42, 0.78);
+
+  color: #ffffff;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  backdrop-filter: blur(7px);
+}
+
+.camera-rec-badge::before {
+  content: "";
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #ef4444;
+
+  box-shadow:
+    0 0 6px rgba(239, 68, 68, 0.85);
+
+  animation: cameraRecPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes cameraRecPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* ============================================================
+   CAMERA SYSTEM STATUS
+   ============================================================ */
+
+.camera-status-box {
+  margin-top: 18px;
+
+  padding: 18px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--glass-border);
+  border-radius: 17px;
+
+  background: var(--glass-bg);
+
+  backdrop-filter:
+    blur(var(--glass-blur))
+    saturate(1.8);
+
+  -webkit-backdrop-filter:
+    blur(var(--glass-blur))
+    saturate(1.8);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.camera-status-box h2 {
+  margin: 0 0 15px;
+
+  color: var(--text-main);
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+/* ============================================================
+   STATUS GRID
+   ============================================================ */
+
+.camera-status-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+/* ============================================================
+   STATUS ITEM
+   ============================================================ */
+
+.camera-status-item {
+  min-width: 0;
+
+  min-height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(100, 116, 139, 0.12);
+  border-radius: 11px;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  backdrop-filter: blur(8px);
+}
+
+.dark-mode .camera-status-item {
+  border-color: rgba(255, 255, 255, 0.07);
+
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.camera-status-item p {
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 9px;
+
+  line-height: 1.3;
+}
+
+.camera-status-item h4 {
+  margin: 0;
+
+  color: var(--text-main);
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.camera-status-green {
+  color: #059669 !important;
+}
+
+.dark-mode .camera-status-green {
+  color: #34d399 !important;
+}
+
+/* ============================================================
+   ACTIVE STATUS HIGHLIGHT
+   ============================================================ */
+
+.camera-status-item:nth-child(1)::before,
+.camera-status-item:nth-child(2)::before,
+.camera-status-item:nth-child(3)::before {
+  content: "";
+
+  width: 3px;
+  height: 24px;
+
+  flex: 0 0 auto;
+
+  border-radius: 5px;
+
+  position: absolute;
+}
+
+.camera-status-item {
+  position: relative;
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1200px) {
+  .camera-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ============================================================
+   MEDIUM
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .camera-feeds-page {
+    padding: 20px;
+  }
+
+  .camera-status-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+  .camera-feeds-page {
+    padding: 15px;
+  }
+
+  .camera-page-header {
+    margin-bottom: 20px;
+  }
+
+  .camera-page-header h1 {
+    font-size: 25px;
+  }
+
+  .camera-page-header p {
+    font-size: 11px;
+  }
+
+  .camera-grid {
+    grid-template-columns: 1fr;
+
+    gap: 13px;
+  }
+
+  .camera-card {
+    padding: 13px;
+  }
+
+  .camera-status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .camera-status-box {
+    padding: 15px;
+  }
+
+  .camera-status-box h2 {
+    font-size: 15px;
+  }
+}
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 500px) {
+  .camera-feeds-page {
+    padding: 10px;
+  }
+
+  .camera-page-header h1 {
+    font-size: 23px;
+  }
+
+  .camera-card-header h3 {
+    font-size: 12px;
+  }
+
+  .camera-status-item {
+    min-height: 54px;
+  }
+}
